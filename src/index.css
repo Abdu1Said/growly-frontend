@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base (خلفية وتهيئة) ===== */
+@layer base {
+  :root {
+    --purple: #6337FF;   /* Majestic Purple */
+    --gun:    #21242B;   /* Dark Gunmetal */
+    --lime:   #D2FF5A;   /* Lime Punch */
+    --white:  #FFFFFF;   /* Pure White */
+  }
+
+  body {
+    @apply text-white antialiased min-h-screen;
+    color: var(--white);
+
+    /* خلفية أساسية Gunmetal ناعمة */
+    background: linear-gradient(180deg, #21242B 0%, #1B1E25 100%);
+  }
+}
+
+/* ===== Components ===== */
+@layer components {
+  .container { @apply mx-auto px-4; }
+
+  /* بطاقة زجاجية */
+  .glass {
+    @apply rounded-2xl border border-white/10 backdrop-blur-xl
+           shadow-[0_8px_30px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,.05)];
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* Hero (الهيدر البنفسجي) */
+  .hero-grad {
+    position: relative;
+    background: linear-gradient(180deg, var(--purple) 0%, #2B2461 100%);
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,.07);
+  }
+
+  /* أزرار */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition select-none;
+  }
+  .btn-primary {
+    background: var(--purple);
+    @apply text-white hover:opacity-90;
+  }
+  .btn-accent {
+    background: var(--lime);
+    @apply text-black hover:opacity-90;
+  }
+  .btn-ghost {
+    @apply bg-white/10 hover:bg-white/20 text-white;
+  }
+
+  /* فورم */
+  .input, .textarea {
+    @apply w-full rounded-xl bg-white/5 border border-white/10 outline-none px-3 py-2;
+    @apply focus:border-[var(--purple)];
+  }
+
+  /* بادج */
+  .badge {
+    background: var(--lime);
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs text-black font-bold;
+  }
+
+  /* نص عربي مُنسّق */
+  .prose-ar {
+    @apply leading-8 text-white/90 tracking-normal;
+    text-wrap: pretty;
+  }
+}
+
+/* ===== Utilities ===== */
+@layer utilities {
+  .text-glow { text-shadow: 0 0 12px rgba(210,255,90,.35); }
+}
